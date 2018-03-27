@@ -1,0 +1,64 @@
+* {
+	box-sizing: border-box;
+}
+
+#tamagotchi {
+	height: 40vw;
+	width: 40vw;
+	border-radius: 10vw;
+	background: none;
+}
+
+img {
+	height: 10vw;
+	width: 10vw;
+}
+
+#container {
+	border: 1px solid black;
+	height: 100%;
+	width: 70%;
+	margin: 5% auto 0 auto;
+	padding: 5%;
+	border-radius: 30vw;
+}
+
+div {
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	font-size: 8vh;
+	margin: 0;
+	clear: both;
+}
+
+header {
+	background: pink;
+	padding: 1vh;
+}
+
+p {
+	text-align: center;
+	font-size: 3vh;
+}
+
+#load,#save {
+	font-size: 3vh;
+	border: 1px black solid;
+	background-color: #DDDDDD;
+	border-radius: 5vw;
+	width: 10vw; 
+	float: right;
+	margin-left: 1vw;
+}
+
+#buttons {
+	margin-top: 3%;
+}
+.action {
+	padding: 1.5vh;
+	margin: 0 5px;
+	/*display: none;*/
+}
