@@ -1,27 +1,12 @@
-# tomagotchi-mini-project
+# Tomagotchi Mini Project
 
 ### Description
 
-Let's use our front-end web development skills to create a "living" pet! We'll use HTML, CSS, and Javascript to interact with our pet.
+You now own a tomogatchi that depends on you for it's survival. Take care of it using the buttons on the screen and keep it happy and healthy.
 
-### Requirements
+### User Story
   
-  * Create a repo for your tomagotchi pet
-  * make a commit after you finish each one of the following
-  * Create a class for you tomagotchi
-  * Display a character of your choice on the screen to represent your pet
-  * Display the following metrics for your pet. Hunger (1-10 scale), Sleepiness (1-10 scale), Boredom (1-10 scale), Age
-  * Add buttons to the screen to feed your pet, turn off the lights, and play with your pet
-  * Add the ability to name your pet
-  * Style the page
-  * Increase your pet's age every x minutes
-  * Increase your pet's Hunger, Sleepiness, and Bored metrics on an interval of your choosing.
-  * You pet should die if Hunger, Boredom, or Sleepiness hits 10.
-  * Morph your pet at certain ages
-  * Animate your pet across the screen
-
-### Extras
-* have your tomagotchi give birth, to baby tomagotchi
-* with special powers (extends the class)
-* add an excercise method to your tomagotchi, that affects certain properties
-* Add anything you can think of, use your imagination
+  * You can use the buttons on the screen to feed your pet, turn off the lights, and play with your pet
+  * You can name your pet
+  * Your pet's Age, Hunger, Sleepiness, and Bored metrics will increase regularly.
+  * Your pet will die if Hunger, Boredom, or Sleepiness hits 10.
