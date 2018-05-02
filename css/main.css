@@ -15,12 +15,15 @@ img {
 }
 
 #container {
-	border: 1px solid black;
 	height: 100%;
 	width: 70%;
 	margin: 5% auto 0 auto;
 	padding: 5%;
 	border-radius: 30vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 }
 
 div {
@@ -44,7 +47,7 @@ p {
 	font-size: 3vh;
 }
 
-#load,#save {
+#load,#save,#new {
 	font-size: 3vh;
 	border: 1px black solid;
 	background-color: #DDDDDD;
@@ -57,8 +60,33 @@ p {
 #buttons {
 	margin-top: 3%;
 }
+
 .action {
 	padding: 1.5vh;
 	margin: 0 5px;
 	/*display: none;*/
+}
+
+.stat,#age {
+	font-size: 3vh;
+	margin-left: 1vw;
+	/*display: none;*/
+}
+
+#stats {
+	display: none;
+	/*display: flex;*/
+	align-items: center;
+	justify-content: space-around;
+	border: 1px solid black;
+}
+
+#action-img {
+	z-index: 0;
+	height: 15vh;
+	width: 15vh;
+}
+
+.hidden {
+	display: none;
 }
