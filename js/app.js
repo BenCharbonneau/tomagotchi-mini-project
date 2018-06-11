@@ -9,7 +9,7 @@ class Tamagotchi {
 		//this.acting stores whether the tamagotchi is eating, sleeping or playing. If true, other actions
 		//can't be performed
 		this.acting = false;					
-		this.int = setInterval(oneDay,5000); //set the tamagotchi's timer
+		this.int = setInterval(oneDay,20000); //set the tamagotchi's timer
 		this.timer = 0;			//timer to increment
 	}
 	feed() {
@@ -17,7 +17,7 @@ class Tamagotchi {
 		if (this.acting) {
 			return;
 		}
-		this.delayAction(1100);
+		this.delayAction(2100);
 
 		//decrease hunger
 		if (this.hunger !== 1) {
@@ -36,7 +36,7 @@ class Tamagotchi {
 		if (this.acting) {
 			return;
 		}
-		this.delayAction(600);
+		this.delayAction(2100);
 
 		if (this.sleepiness !== 1) {
 			this.sleepiness--;
@@ -47,14 +47,14 @@ class Tamagotchi {
 		$('#action-img').toggleClass('hidden');
 		setTimeout(() => {
 			$('#action-img').toggleClass('hidden')
-		},500);
+		},2000);
 	}
 	play() {
 		//this works like the feed method but it decreases boredom
 		if (this.acting) {
 			return;
 		}
-		this.delayAction(1100);
+		this.delayAction(2100);
 
 		if (this.boredom !== 1) {
 			this.boredom--;
@@ -125,7 +125,8 @@ class Tamagotchi {
 
 		//remove the tamagotchi from the saved tamagotchi's
 		let index = tamagotchis.indexOf(tamagotchi);
-		tamagotchis.slice(index,index+1);
+		tamagotchis.splice(index,1);
+		$('.action').addClass('hidden');
 		alert("Your tamagotchi has died!");
 
 		//change the container border
@@ -136,6 +137,8 @@ class Tamagotchi {
 		else {
 			$('#container').css('border','5px solid red');
 		}
+
+		saveTamagotchi();
 	}
 }
 
@@ -146,15 +149,15 @@ function createTamagotchi(e) {
 
 	if(!name) {
 		return;
-	}
+	}		
 
 	//check to see if the tamagotchi name matches one already in use
-	// for (tam of tamagotchis) {
-	// 	if (tam.name === name) {
-	// 		alert("That name is already taken.");
-	// 		createTamagotchi(e);
-	// 	}
-	// }
+	for (tam of tamagotchis) {
+		if (tam.name === name) {
+			alert("That name is already taken.");
+			createTamagotchi(e);
+		}
+	}
 
 	//the type is in the path for the tamagotchi image they clicked
 	//I slice the type out of the image path here
@@ -167,9 +170,7 @@ function createTamagotchi(e) {
 	localStorage.setItem('tamagotchis', JSON.stringify(tamagotchis));
 
 	//hide the loading screen
-	if ($('p').css('class') !== "hidden") {
-		$('p').toggleClass('hidden');
-	}
+	$('p').addClass('hidden');
 
 	let container = $('#select');
 	container.attr('id', 'container');
@@ -178,7 +179,7 @@ function createTamagotchi(e) {
 	displayTamagotchi(type, container);
 
 	//show the action buttons and add their click events
-	$('.action').toggleClass('hidden');
+	$('.action').removeClass('hidden');
 	$('.action').click(doAction);
 }
 
@@ -196,8 +197,8 @@ function loadTamagotchi() {
 	if (container.length === 0) {
 		container = $('#select');
 		container.attr('id','container');
-		$('.action').toggleClass('hidden');
 	}
+	$('.action').removeClass('hidden');
 
 	//loop through the saved tamagotchis
 	for (tam of tamagotchis) {
@@ -205,7 +206,7 @@ function loadTamagotchi() {
 		//check to see if the tamagotchi name matches
 		if (tam.name === name) {
 			tamagotchi = tam;
-
+			
 			//display the tamagotchi
 			displayTamagotchi(tamagotchi.type,container);
 
@@ -226,7 +227,7 @@ function loadTamagotchi() {
 			$('#age').text("Age: "+tamagotchi.age);
 
 			//start the tamagotchi's timer back up
-			tamagotchi.int = setInterval(oneDay,5000);
+			tamagotchi.int = setInterval(oneDay,20000);
 
 
 			return;
@@ -271,11 +272,11 @@ function newTamagotchi() {
 	}
 
 	//show the "Click a tamagotchi text"
-	$('p').toggleClass('hidden');
+	$('p').removeClass('hidden');
 
 	//hide the stats and action buttons for the previous tamagotchi
 	$('#stats').css('display','none');
-	$('.action').toggleClass('hidden');
+	$('.action').addClass('hidden');
 
 	//set hunger, sleepiness, and boredom to 1 in the DOM
 	let stats = $('.stat');
@@ -323,7 +324,7 @@ function doAction(e) {
 //This function runs on a 20 second interval
 //It will increase hunger, sleepiness, boredom, and age
 function oneDay() { 
-
+	
 	//iterate the timer
 	tamagotchi.timer++;
 
@@ -362,17 +363,18 @@ function iterateStat(elem,decrease,amount=1) {
 	elem.text(text[0]+" "+num);
 }
 
-//This will show and hide the action image on a 1 second interval for 4 seconds
+//This will show and hide the action image on a 0.5 second interval for 2 seconds total
 //(for feeding, sleeping, and playing)
 function flashActionImg() {
 	let timer = 0;
+	$('#action-img').toggleClass('hidden');
 	let interval = setInterval(() => {
 		$('#action-img').toggleClass('hidden');
 		if (timer === 3) {
 			clearInterval(interval);
 		}
 		timer++
-	},250);
+	},500);
 }
 
 //append a tamagotchi image to the tamagotchi container

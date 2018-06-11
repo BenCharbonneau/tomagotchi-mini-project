@@ -2,16 +2,55 @@
 	box-sizing: border-box;
 }
 
-#tamagotchi {
-	height: 40vw;
-	width: 40vw;
-	border-radius: 10vw;
-	background: none;
+div {
+	text-align: center;
 }
 
 img {
 	height: 10vw;
 	width: 10vw;
+}
+
+p {
+	text-align: center;
+	font-size: 3vh;
+}
+
+.hidden {
+	display: none;
+}
+
+/* HEADER STYLING */
+
+h1 {
+	text-align: center;
+	font-size: 8vh;
+	margin: 0;
+	clear: both;
+}
+
+header {
+	background: pink;
+	padding: 1vh;
+}
+
+#load,#save,#new {
+	font-size: 3vh;
+	border: 1px black solid;
+	background-color: #DDDDDD;
+	border-radius: 5vw;
+	width: 10vw; 
+	float: right;
+	margin-left: 1vw;
+}
+
+/* TAMAGOTCHI STYLING */
+
+#tamagotchi {
+	height: 40vw;
+	width: 40vw;
+	border-radius: 10vw;
+	background: none;
 }
 
 #container {
@@ -26,37 +65,6 @@ img {
 	align-items: center;
 }
 
-div {
-	text-align: center;
-}
-
-h1 {
-	text-align: center;
-	font-size: 8vh;
-	margin: 0;
-	clear: both;
-}
-
-header {
-	background: pink;
-	padding: 1vh;
-}
-
-p {
-	text-align: center;
-	font-size: 3vh;
-}
-
-#load,#save,#new {
-	font-size: 3vh;
-	border: 1px black solid;
-	background-color: #DDDDDD;
-	border-radius: 5vw;
-	width: 10vw; 
-	float: right;
-	margin-left: 1vw;
-}
-
 #buttons {
 	margin-top: 3%;
 }
@@ -66,6 +74,14 @@ p {
 	margin: 0 5px;
 	/*display: none;*/
 }
+
+#action-img {
+	z-index: 0;
+	height: 15vh;
+	width: 15vh;
+}
+
+/* STATS BAR */
 
 .stat,#age {
 	font-size: 3vh;
@@ -79,14 +95,4 @@ p {
 	align-items: center;
 	justify-content: space-around;
 	border: 1px solid black;
-}
-
-#action-img {
-	z-index: 0;
-	height: 15vh;
-	width: 15vh;
-}
-
-.hidden {
-	display: none;
 }
